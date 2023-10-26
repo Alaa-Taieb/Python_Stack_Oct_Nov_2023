@@ -26,7 +26,7 @@ We advise checking this repository regularly to keep up-to-date with the latest 
 1. **Clone the Repository** - You can clone the repository to your local machine for easier access and the ability to work offline.
 
     ```
-    git clone https://github.com/Alaa-Taieb/Python_Stack_Aug_Sept.git
+    git clone https://github.com/Alaa-Taieb/Python_Stack_Oct_Nov_2023.git
     ```
 
 2. **Pull the Latest Changes** - Before each session, ensure you have the latest course material. You can pull any new updates from the repository with the following command:
