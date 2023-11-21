@@ -8,6 +8,8 @@ app = Flask(__name__)
 # Setting the Secret_key for the entire application (used internally by the server to hash/encrypt data in sessions)
 app.secret_key = "sdjufhiesjdnfe"
 
+
+
 # Root Route
 @app.route('/')
 def index():

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Bun</td>
+            <td>Meat</td>
+            <td>Calories</td>
+            <td>Create at</td>
+            <td>Updated at</td>
+        </thead>
+        <tbody>
+            {% for burger in burgers%}
+                <tr>
+                    <td>{{burger.id}}</td>
+                    <td>{{burger.name}}</td>
+                    <td>{{burger.bun}}</td>
+                    <td>{{burger.meat}}</td>
+                    <td>{{burger.calories}}</td>
+                    <td>{{burger.created_at}}</td>
+                    <td>{{burger.updated_at}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
