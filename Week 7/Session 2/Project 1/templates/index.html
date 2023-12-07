@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol>
+        <h2>Get Country Flag</h2>
+        <form action="/get_flag" method="post">
+            <label for="Country"></label>
+            <select name="country" id="">
+                {% for item in data %}
+                    <option value="{{item['flags']['png']}}">{{item['name']['common']}}</option>
+                {% endfor %}
+            </select>
+            
+            <button type="submit">Get Flag</button>
+        </form>
+    </ol>
+</body>
+</html>

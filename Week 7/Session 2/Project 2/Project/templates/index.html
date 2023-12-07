@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+}
+
+.button_container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    
+}
+
+.big_button{
+    flex: 1;
+    height: 100%;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#first_button {
+    background-image: url(assets/first_button_background_image.png);
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+
+#second_button {
+    background-size: contain;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-image: url(assets/second_button_background_image.jpeg);
+}
+
+.black_tint {
+    background-color: black;
+    position: absolute;
+    width: 50%;
+    height: 100vh;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.big_button a{
+    font-size: 3rem;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 2;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0);
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+}
+
+.big_button a:hover{
+    background-color: white;
+    color: black;
+}
+
+.option {
+    display: flex;
+    padding: 5px;
+    justify-content: space-between;
+    font-weight: bold;
+    z-index: 2;
+}
+
+#country_part_container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: center;
+}
+
+#select_country {
+    z-index: 2;
+    padding: 20px;
+
+}
+
+.option img{
+    width: 50px;
+    height: 30px;
+}
+    </style>
+
+    <div class="button_container">
+        <div class="big_button" id="first_button">
+            <div class="black_tint"></div>
+            <a href="/get_all_apis">Get All Apis</a>
+        </div>
+        <div class="big_button" id="second_button">
+            <div class="black_tint"></div>
+            <div id="country_part_container">
+                <a id="special_button" href="/get_country_info">Get country info</a>
+                <select name="" id="select_country" class="form-control" onchange="change_image()">
+                    {% for country in countries %}
+                    <option class="option" value="{{country['flags']['svg']}}" >
+                        <!-- <img src="{{country['flags']['svg']}}" alt="{{country['name']['official']}}"> -->
+                        <span>{{country['name']['official']}} </span>
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        button = document.querySelector("#special_button");
+        select = document.querySelector("#select_country");
+        function change_image(){
+            url = select.value;
+            console.log(url)
+            button.style = `background-image: url(${url}); border: none; background-size: contain;`;
+            
+
+        }
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
